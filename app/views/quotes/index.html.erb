@@ -1,0 +1,22 @@
+<%= turbo_stream_from current_company, "quotes" %>
+
+<main class="container">
+  <div class="header">
+    <h1>Quotes</h1>
+    <%= link_to "New quote",
+                new_quote_path,
+                data: { turbo_frame: "new_quote" },
+                class: "btn btn--primary" %>
+  </div>
+
+  <%= turbo_frame_tag "new_quote" do %>
+    <% if @quotes.none? %>
+      <%= render "quotes/empty_state" %>
+    <% end %>
+  <% end %>
+
+  <%= turbo_frame_tag "quotes" do %>
+    <%= render @quotes %>
+  <% end %>
+
+</main>
