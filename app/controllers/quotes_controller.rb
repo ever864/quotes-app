@@ -6,7 +6,9 @@ class QuotesController < ApplicationController
     @quotes = current_company.quotes.ordered
   end
 
-  def show; end
+  def show
+    @line_item_dates = @quote.line_item_dates.includes(:line_items).ordered
+  end
 
   def new
     @quote = Quote.new
@@ -26,7 +28,9 @@ class QuotesController < ApplicationController
 
   end
 
-  def edit; end
+  def edit
+
+  end
 
   def update
 

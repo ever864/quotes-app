@@ -1,4 +1,6 @@
 <%= simple_form_for quote, html: { class: "quote form" } do |form| %>
+  <%= form_error_notification(quote) %>
+
   <%= form.input :name %>
 
   <%= link_to "Cancel", quotes_path, class: "btn btn--light" %>
