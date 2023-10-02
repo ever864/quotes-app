@@ -1,4 +1,5 @@
 class LineItemDate < ApplicationRecord
+
   belongs_to :quote
   has_many :line_items, dependent: :destroy
 
@@ -9,4 +10,5 @@ class LineItemDate < ApplicationRecord
   def previous_date
     quote.line_item_dates.ordered.where("date < ?", date).last
   end
+
 end
